@@ -26,21 +26,21 @@ while True:
     if recognizedId == face.RACHEL:
       print "we found it!"
       print "It's Rachel"
-      subprocess.call(['aplay -fdat rachel.wav'], shell=True)
+      subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/rachel.wav'], shell=True)
       break
     elif recognizedId == face.TIERNEY:
       print "we found it!"
       print "It's Tierney!"
-      subprocess.call(['aplay -fdat tierney.wav'], shell=True)
+      subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/tierney.wav'], shell=True)
       break
     elif recognizedId == face.ANNIE:
       print "we found it!"
       print "It's Annie!"
-      subprocess.call(['aplay -fdat annie.wav'], shell=True)
+      subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/annie.wav'], shell=True)
       break
   except:
     print "I don't know her"
-    subprocess.call(['aplay -fdat unknown.wav'], shell=True)
+    subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/unknown.wav'], shell=True)
     break
 
 
