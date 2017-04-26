@@ -22,28 +22,28 @@ result = CF.face.detect(img_url)
 
 faceNumber = result[0][u'faceId']
 
-# This compares our known faceId to our group
-whoIsShe = CF.face.identify([ faceNumber ], 'my_anthem', 1)
+while True:
+  try:
+    whoIsShe = CF.face.identify([ faceNumber ], 'my_anthem', 1)
+    recognizedId = whoIsShe[0][u'candidates'][0][u'personId']
+    if recognizedId == face.RACHEL:
+      print "we found it!"
+      print "It's Rachel"
+      subprocess.call(['aplay -fdat rachel.wav'], shell=True)
+      break
+    elif recognizedId == face.TIERNEY:
+      print "we found it!"
+      print "It's Tierney!"
+      subprocess.call(['aplay -fdat tierney.wav'], shell=True)
+      break
+    elif recognizedId == face.ANNIE:
+      print "we found it!"
+      print "It's Annie!"
+      subprocess.call(['aplay -fdat annie.wav'], shell=True)
+      break
+  except:
+    print "I don't know her"
+    break
+    subprocess.call(['aplay -fdat unknown.wav'], shell=True)
 
-recognizedId = whoIsShe[0][u'candidates'][0][u'personId']
-
-print '-----------------'
-
-print whoIsShe[0][u'candidates'][0][u'personId']
-
-if recognizedId == face.RACHEL:
-  print "we found it!"
-  print "It's Rachel"
-  subprocess.call(['aplay -fdat rachel.wav'], shell=True)
-elif recognizedId == face.TIERNEY:
-  print "we found it!"
-  print "It's Tierney!"
-  subprocess.call(['aplay -fdat tierney.wav'], shell=True)
-elif recognizedId == face.ANNIE:
-  print "we found it!"
-  print "It's Annie!"
-  subprocess.call(['aplay -fdat annie.wav'], shell=True)
-else:
-   print "I don't know her"
-   subprocess.call(['aplay -fdat unknown.wav'], shell=True)
 
