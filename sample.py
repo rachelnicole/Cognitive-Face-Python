@@ -1,10 +1,21 @@
 import cognitive_face as CF
 import faces as face
+from picamera import PiCamera 
+from time import sleep
 
 KEY = '06add3ffb377418fa5a4ed59d3d4325c'  # Replace with a valid Subscription Key here.
 CF.Key.set(KEY)
 
-img_url = 'http://i.imgur.com/8ydax81.jpg'
+camera = PiCamera()
+
+camera.start_preview()
+sleep(2)
+camera.capture('/home/pi/Desktop/image.jpg')
+camera.stop_preview()
+
+
+
+img_url = '/home/pi/Desktop/image.jpg'
 result = CF.face.detect(img_url)
 
 faceNumber = result[0][u'faceId']
