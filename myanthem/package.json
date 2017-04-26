@@ -1,0 +1,19 @@
+{
+  "name": "myanthem",
+  "version": "1.0.0",
+  "description": "node app frontend for our python app",
+  "main": "app.js",
+  "dependencies": {
+    "connect": "^3.6.1",
+    "express": "^4.15.2",
+    "project-oxford": "^1.7.0",
+    "python-shell": "^0.4.0",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rachel White",
+  "license": "ISC"
+}
