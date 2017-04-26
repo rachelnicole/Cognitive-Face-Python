@@ -105,6 +105,11 @@ input[type="url"] {
     font-size: 16px;
     padding: 15px;
     background-color: white;
+    display: inline-block;
+}
+
+.step-one.shown {
+    text-align: center;
 }
 
 #selfie {
