@@ -8,8 +8,6 @@ import subprocess
 KEY = '06add3ffb377418fa5a4ed59d3d4325c'  # Replace with a valid Subscription Key here.
 CF.Key.set(KEY)
 
-es = espeak.ESpeak(options)
-
 camera = PiCamera()
 
 camera.start_preview()
@@ -28,7 +26,7 @@ while True:
     if recognizedId == face.RACHEL:
       print "we found it!"
       print "It's Rachel"
-      subprocess.call(['es.say(oh wow its Rachel i cant believe it)'])
+      subprocess.call(['espeak "oh wow its rachel i cant believe it" 2>/dev/null'])
       subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/rachel.wav'], shell=True)
       break
     elif recognizedId == face.TIERNEY:
@@ -42,7 +40,7 @@ while True:
       subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/annie.wav'], shell=True)
       break
   except:
-    subprocess.call(['es.say(oh no oh my this is awkward)'])
+    subprocess.call(['espeak "oh no oh my this is awkward" 2>/dev/null'])
     subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/unknown.wav'], shell=True)
     break
 
