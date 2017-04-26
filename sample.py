@@ -32,6 +32,7 @@ print whoIsShe[0][u'candidates'][0][u'personId']
 if recognizedId == face.RACHEL:
   print "we found it!"
   print "It's Rachel"
+  subprocess.call(['aplay -fdat meow.wav'], shell=True)
 elif recognizedId == face.TIERNEY:
   print "we found it!"
   print "It's Tierney!"
