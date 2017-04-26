@@ -33,13 +33,16 @@ print whoIsShe[0][u'candidates'][0][u'personId']
 if recognizedId == face.RACHEL:
   print "we found it!"
   print "It's Rachel"
-  subprocess.call(['aplay -fdat meow.wav'], shell=True)
+  subprocess.call(['aplay -fdat rachel.wav'], shell=True)
 elif recognizedId == face.TIERNEY:
   print "we found it!"
   print "It's Tierney!"
+  subprocess.call(['aplay -fdat tierney.wav'], shell=True)
 elif recognizedId == face.ANNIE:
   print "we found it!"
   print "It's Annie!"
+  subprocess.call(['aplay -fdat annie.wav'], shell=True)
 else:
    print "I don't know her"
+   subprocess.call(['aplay -fdat unknown.wav'], shell=True)
 
