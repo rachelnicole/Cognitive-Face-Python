@@ -3,7 +3,6 @@ import faces as face
 from picamera import PiCamera 
 from time import sleep
 import subprocess
-import espeak
 
 
 KEY = '06add3ffb377418fa5a4ed59d3d4325c'  # Replace with a valid Subscription Key here.
