@@ -1,5 +1,5 @@
 var socket = io();
 
 function myAnthem() {
-  socket.emit('buttonPush', data);
+  socket.emit('buttonPush');
 }
