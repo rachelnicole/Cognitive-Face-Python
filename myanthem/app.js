@@ -17,10 +17,9 @@ app.get('/', function (req, res) {
 io.on('connection', function(socket) { 
 
   socket.on('buttonPush', function (response) {
-    PythonShell.run('../sample.py', options, function (err, results) {
+    PythonShell.run('../sample.py', function (err) {
       if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      console.log('results: %j', results);
+      console.log('finished');
     });
   });
 
