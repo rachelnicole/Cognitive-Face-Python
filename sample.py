@@ -2,9 +2,7 @@ import cognitive_face as CF
 import faces as face
 from picamera import PiCamera 
 from time import sleep
-from omxplayer import OMXPlayer
 
-rachelSound = 'meow.mp3'
 
 KEY = '06add3ffb377418fa5a4ed59d3d4325c'  # Replace with a valid Subscription Key here.
 CF.Key.set(KEY)
@@ -35,7 +33,7 @@ print whoIsShe[0][u'candidates'][0][u'personId']
 if recognizedId == face.RACHEL:
   print "we found it!"
   print "It's Rachel"
-  OMXPlayer(rachelSound).play()
+  subprocess.call(['aplay -fdat meow.wav'], shell=True)
 elif recognizedId == face.TIERNEY:
   print "we found it!"
   print "It's Tierney!"
