@@ -3,10 +3,13 @@ import faces as face
 from picamera import PiCamera 
 from time import sleep
 import subprocess
+import espeak
 
 
 KEY = '06add3ffb377418fa5a4ed59d3d4325c'  # Replace with a valid Subscription Key here.
 CF.Key.set(KEY)
+
+es = espeak.ESpeak(options)
 
 camera = PiCamera()
 
@@ -26,20 +29,21 @@ while True:
     if recognizedId == face.RACHEL:
       print "we found it!"
       print "It's Rachel"
+      subprocess.call(['es.say(oh wow its Rachel i cant believe it)'])
       subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/rachel.wav'], shell=True)
       break
     elif recognizedId == face.TIERNEY:
       print "we found it!"
-      print "It's Tierney!"
+      subprocess.call(['es.say(are you ready for Twix)'])
       subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/tierney.wav'], shell=True)
       break
     elif recognizedId == face.ANNIE:
       print "we found it!"
-      print "It's Annie!"
+      subprocess.call(['es.say(Access granted welcome Annie)'])
       subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/annie.wav'], shell=True)
       break
   except:
-    print "I don't know her"
+    subprocess.call(['es.say(oh no oh my this is awkward)'])
     subprocess.call(['aplay -fdat /home/pi/Desktop/Cognitive-Face-Python/unknown.wav'], shell=True)
     break
 
