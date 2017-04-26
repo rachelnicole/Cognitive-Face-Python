@@ -15,15 +15,12 @@ sleep(2)
 camera.capture('/home/pi/Desktop/image.jpg')
 camera.stop_preview()
 
-
-
 img_url = '/home/pi/Desktop/image.jpg'
 result = CF.face.detect(img_url)
 
-faceNumber = result[0][u'faceId']
-
 while True:
   try:
+    faceNumber = result[0][u'faceId']
     whoIsShe = CF.face.identify([ faceNumber ], 'my_anthem', 1)
     recognizedId = whoIsShe[0][u'candidates'][0][u'personId']
     if recognizedId == face.RACHEL:
@@ -43,7 +40,7 @@ while True:
       break
   except:
     print "I don't know her"
-    break
     subprocess.call(['aplay -fdat unknown.wav'], shell=True)
+    break
 
 
